@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="ESP32 Remote Control with WebSocket">
+  <title>Cygnon Rover remote control</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body scroll="no">
+  <h1>Cygnon Rover</h1>
+
+  <div id="bigbutton" class="grid-item">
+    <button id="update_enable" class="%UPDATE_STATE%">UPDATE DATA</button>
+  </div>
+
+  <div id="smallbutton" class="grid-item">
+    <div id="row1">
+      <button id="motor_enable" class="%MOTOR_STATE%">MOTOR</button>
+      <button id="sound_buzzer" class="%BUZZER_STATE%">BUZZER</button>
+    </div>
+  
+    <div id="row2">
+      <button id="mag_reset" class="%MAG_RESET_STATE%">MAG RESET</button>
+      <button id="victory" class="%VICTORY_STATE%">VICTORY</button>
+    </div>
+  </div>
+
+  <div id="data" class="grid-item">
+    <h2>Name: <span id="name"> --</span></h2>
+    <h2>Age: <span id="age"> --</span></h2>
+    <h2>Polarity: <span id="mag"> --</span></h2>
+  </div> 
+  
+  <div class="row2">
+    <button id="up-control" class="directional_button" data-direction="up">&#8593;</button>
+    <button id="left-control" class="directional_button" data-direction="left">&#8592;</button>
+      <div id="joystick" class="grid-item">
+        <div id="joystick_handle"></div>
+      </div>
+    <button id="right-control" class="directional_button" data-direction="right">&#8594;</button>
+    <button id="down-control" class="directional_button" data-direction="down">&#8595;</button>
+  </div>  
+    
+  <script src="index.js"></script>
+</body>
+
+</html>

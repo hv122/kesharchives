@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+html,
+body {
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: small;
+  overflow: visible;
+  background-color: burlywood;
+}
+
+h1 {
+  color: black;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  grid-template-rows: auto auto auto;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  width: fit-content;
+}
+
+h1 {
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.row2{
+  margin-top: 10px;
+  display: grid;
+  grid-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  grid-template-areas:
+  ".    up   ." 
+  "left centre right"
+  ".  down   ." 
+}
+
+#up-control {
+  grid-area: up;
+  height: 50px;
+  width: 50px;
+  transform: translateX(3px);
+  justify-content: center;
+  border-color: transparent;
+  scale: 1.25;
+  margin-left: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  color: white;
+  background-color: #750096;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#left-control {
+  grid-area: left;
+  height: 50px;
+  justify-content: center;
+  scale: 1.25;
+  border-color: transparent;
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: white;
+  background-color: #750096;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#right-control {
+  grid-area: right;
+  height: 50px;
+  justify-content: center;
+  scale: 1.25;
+  margin-left: 10px;
+  border-color: transparent;
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: white;
+  background-color: #750096;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#down-control {
+  grid-area: down;
+  height: 50px;
+  width: 50px;
+  transform: translateX(3px);
+  justify-content: center;
+  border-color: transparent;
+  scale: 1.25;
+  margin-left: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  color: white;
+  background-color: #750096;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#joystick {
+  margin-left: 10px;
+  grid-area: centre;
+}
+
+#update_enable {
+  padding: 30px 40px;
+  background-color: #750096;
+  color: white;
+  border-color: transparent;
+  border-radius: 10px;
+}
+
+#update_enable.data_update_enabled {
+  background-color: rgb(72, 190, 13);
+  color: black;
+}
+
+#motor_enable, #sound_buzzer, #mag_reset, #victory {
+  width: 100px;
+  background-color: #750096;
+  color: white;
+  margin: 5px;
+  height: 30px;
+  border-radius: 5px;
+  border-color: transparent;
+  text-align: center;
+}
+
+#motor_enable.active, #sound_buzzer.active, #mag_reset.active, #victory.active {
+  transform: translateY(5px);
+}
+
+#motor_enable.motor_enabled {
+  background-color: rgb(68, 255, 47);
+  transform: translateY(2px);
+  color: black;
+}
+
+#mag_reset.mag_reset_enabled {
+  background-color: rgb(68, 255, 47);
+  transform: translateY(2px);
+  color: black;
+}
+
+#sound_buzzer.buzzer_enabled {
+  background-color: rgb(68, 255, 47);
+  transform: translateY(2px);
+  color: black;
+}
+
+#victory.victory_button_enabled {
+  background-color: rgb(68, 255, 47);
+  transform: translateY(2px);
+  color: black;
+}
+
+
+#down-control:active, #up-control:active, #left-control:active, #right-control:active{
+  background-color: greenyellow;
+  color: black;
+}
+
+#joystick {
+  width: 160px;
+  height: 160px;
+  background-color: #750096;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#joystick_handle {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#joystick_handle:active {
+  background-color: greenyellow;
+}
