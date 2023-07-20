@@ -1,2 +1,2 @@
 # kesharchives
-A repository detailing projects I have done, in various programming languages, to be used as a portfolio for employment and reference from my CV.
+A repository detailing with code snippets and explanations to do with smart pointers, as preparation for Year 2 EIE.
