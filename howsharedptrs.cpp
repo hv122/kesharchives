@@ -9,6 +9,9 @@ std::shared_ptr<int> getData()
 
 int main()
 {
-    std::shared_ptr<int> b = getData();
+    auto b = getData(); // auto can be used instead of the whole syntax
+    auto c = b;         // as they are shared pointers, we can do this
     std::cout << *b << std::endl;
 }
+
+// memory that shared_ptrs point to only gets deleted once all pointers to it go out of scope
