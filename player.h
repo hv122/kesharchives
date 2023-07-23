@@ -20,10 +20,13 @@ public:
 
 
 private:
+	
+	Player();
+	~Player();
 	sf::Texture texture;					// these need to be here, because they need to stay in scope after
 	std::vector<sf::CircleShape> bullets;	// they are initialised, not just for the duration of that fn
-	float bulletSpeed = 0.5f;
-	float playerSpeed = 2.0f;
+	float bulletSpeed;
+	float playerSpeed;
 	
 	sf::RectangleShape boundingRectangle;
 	sf::Vector2i size;

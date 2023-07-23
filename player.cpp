@@ -3,6 +3,11 @@
 #include "Math.h"
 
 
+Player::Player() :
+	bulletSpeed(0.5f), playerSpeed(1.0f)
+{
+}
+
 void Player::Initialize()
 {
 	boundingRectangle.setOutlineColor(sf::Color::Red);
