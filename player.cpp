@@ -4,7 +4,7 @@
 
 
 Player::Player() :
-	bulletSpeed(0.5f), playerSpeed(1.0f)
+	playerSpeed(0.2f), maxFireRate(250), fireRateTimer(0)
 {
 }
 
@@ -42,7 +42,7 @@ void Player::Load()
 	}
 }
 
-void Player::Update(float deltaTime, Skeleton& skeleton) 
+void Player::Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosition) 
 {
 	auto position = sprite.getPosition();
 
@@ -60,30 +60,39 @@ void Player::Update(float deltaTime, Skeleton& skeleton)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		sprite.setPosition(position + sf::Vector2f(0, -1) * playerSpeed * deltaTime);
 
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	//------------- BULLET -------------------------
+
+	fireRateTimer += deltaTime;
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fireRateTimer >= maxFireRate)
 	{
-		bullets.push_back(sf::CircleShape(10.0f));
+		bullets.push_back(Bullet());
 
 		int i = bullets.size() - 1;
-		bullets[i].setPosition(sprite.getPosition());
+		bullets[i].Initialize(sprite.getPosition(), mousePosition, 0.5f);
+		fireRateTimer = 0;
 	}
 
-	for (size_t i = 0; i < bullets.size(); i++) // the slower the frame rate, the slower the bullets
+	for (size_t i = 0; i < bullets.size(); i++)
 	{
-		sf::Vector2f bulletDirection = skeleton.sprite.getPosition() - bullets[i].getPosition();
-		bulletDirection = Math::NormalizeVector(bulletDirection);
-		bullets[i].setPosition(bullets[i].getPosition() + bulletDirection * bulletSpeed * deltaTime); // we want to use delta time
-		// delta time keeps the speed of objects the same independent of framerate
+		bullets[i].Update(deltaTime);
+
+		if (skeleton.health > 0)
+		{
+			if(Math::DidRectCollide(bullets[i].GetGlobalBounds(), skeleton.sprite.getGlobalBounds()))
+			{
+				skeleton.changeHealth(-10);
+				bullets.erase(bullets.begin() + i);
+			}
+		}
 	}
-	
+
+
 	boundingRectangle.setPosition(sprite.getPosition());
 
-	if (Math::DidRectCollide(sprite.getGlobalBounds(), skeleton.sprite.getGlobalBounds()))
-	{
-		std::cout << "Collision detected!\n";
-	}
-
 }
+
+// ----------------------------------------------------
 
 void Player::Draw(sf::RenderWindow& window) // needs to have the same class "Player" otherwise it doesn't refer to our header file
 {
@@ -92,6 +101,6 @@ void Player::Draw(sf::RenderWindow& window) // needs to have the same class "Pla
 
 	for (size_t i = 0; i < bullets.size(); i++)
 	{
-		window.draw(bullets[i]);
+		bullets[i].Draw(window);
 	}
 }

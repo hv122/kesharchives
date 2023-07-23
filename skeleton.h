@@ -5,24 +5,25 @@ class Skeleton
 {
 public: // public variable
 	sf::Sprite sprite;
+	sf::RectangleShape boundingRectangle;
+	sf::Vector2i size;
+	int health;
 
 public:
 
-
+	Skeleton();
 	void Initialize();
 	void Load();
 	void Update();
 	void Draw(sf::RenderWindow& window);
+	void changeHealth(int hp);
 
 
-	void Shoot();
-	void playerHP();
 
 private:
 	sf::Texture texture;	// these need to be here, because they need to stay in scope after
 	// they are initialised, not just for the duration of that fn
 
-	sf::RectangleShape boundingRectangle;
-	sf::Vector2i size;
-
+	sf::Text healthText;
+	sf::Font font;
 };

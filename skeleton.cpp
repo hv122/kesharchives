@@ -1,6 +1,12 @@
 #include "skeleton.h"
 #include <iostream>
 
+Skeleton::Skeleton() :
+	health(100)
+{
+}
+
+
 void Skeleton::Initialize()
 {
 	boundingRectangle.setOutlineColor(sf::Color::Blue);
@@ -16,6 +22,9 @@ void Skeleton::Load()
 	{
 		std::cout << "Skeleton texture loaded!\n";
 		sprite.setTexture(texture);
+		sprite.setPosition(sf::Vector2f(500, 500));
+		healthText.setString(std::to_string(health));
+
 
 		int XIndex = 0;
 		int YIndex = 2;
@@ -27,21 +36,44 @@ void Skeleton::Load()
 		);
 
 		sprite.setTextureRect(sf::IntRect(XIndex * size.x, YIndex * size.y, size.x, size.y));
-		sprite.setPosition(sf::Vector2f(500, 500));
+
 	}
 	else
 	{
 		std::cout << "Skeleton texture failed to load\n";
 	}
+
+	if (font.loadFromFile("Assets/Fonts/Consolas.ttf"))
+	{
+		std::cout << "Font assets loaded successfully\n";
+		healthText.setFont(font);
+	}
+	else
+	{
+		std::cout << "Failed to load font assets successfully\n";
+	}
 } 
 
 void Skeleton::Update()
 {
-	boundingRectangle.setPosition(sprite.getPosition());
+	if (health > 0) {
+		boundingRectangle.setPosition(sprite.getPosition());
+		healthText.setPosition(sprite.getPosition());
+	}
+
 }
 
 void Skeleton::Draw(sf::RenderWindow& window)
 {
-	window.draw(sprite);
-	window.draw(boundingRectangle);
+	if (health > 0) {
+		window.draw(sprite);
+		window.draw(boundingRectangle);
+		window.draw(healthText);
+	}
+}
+
+void Skeleton::changeHealth(int hp)
+{
+	health += hp;
+	healthText.setString(std::to_string(health));
 }

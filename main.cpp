@@ -53,12 +53,13 @@
 
 			}
 
+			sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
+			std::cout << "Mouse Position: " << mousePosition.x << " " << mousePosition.y << std::endl;
+
 			
 			frameRate.Update(deltaTime);
 			skeleton.Update();
-			myPlayer.Update(deltaTime, skeleton);
-
-
+			myPlayer.Update(deltaTime, skeleton, mousePosition);  
 			// -------------------------------  DRAW -------------------------------------------
 			window.clear(sf::Color::Black);
 			// here is where we draw to the back buffer -- between clear and display
