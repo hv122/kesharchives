@@ -1,4 +1,4 @@
-#include "player.h" // this is used so that the cpp recognises the class names
+#include "Player.h" // this is used so that the cpp recognises the class names
 #include <iostream> // this only needs to be here, as there are no std namespace items in the header file
 #include "Math.h"
 
@@ -27,7 +27,7 @@ void Player::Load()
 		auto XIndex = 0;
 		auto YIndex = 0;
 
-	sprite.scale(sf::Vector2f(1, 1));
+	sprite.scale(sf::Vector2f(2, 2));
 
 	boundingRectangle.setSize(
 		sf::Vector2f(size.x * sprite.getScale().x, size.y * sprite.getScale().y)

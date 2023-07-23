@@ -152,17 +152,19 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="FrameRate.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Math.cpp" />
-    <ClCompile Include="player.cpp" />
-    <ClCompile Include="skeleton.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="FrameRate.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Math.h" />
-    <ClInclude Include="player.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="skeleton.h" />
+    <ClInclude Include="Skeleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My First Game.rc" />

@@ -1,4 +1,4 @@
-#include "skeleton.h"
+#include "Skeleton.h"
 #include <iostream>
 
 Skeleton::Skeleton() :
@@ -29,7 +29,7 @@ void Skeleton::Load()
 		int XIndex = 0;
 		int YIndex = 2;
 		
-		sprite.scale(sf::Vector2f(1, 1));
+		sprite.scale(sf::Vector2f(2, 2));
 
 		boundingRectangle.setSize(
 			sf::Vector2f(size.x * sprite.getScale().x, size.y * sprite.getScale().y)
@@ -54,7 +54,7 @@ void Skeleton::Load()
 	}
 } 
 
-void Skeleton::Update()
+void Skeleton::Update(float deltaTime)
 {
 	if (health > 0) {
 		boundingRectangle.setPosition(sprite.getPosition());

@@ -1,7 +1,10 @@
-#include "player.h" // double quotes denote that this file exists in my project
-#include "skeleton.h"
+#include "Player.h" // double quotes denote that this file exists in my project
+#include "Skeleton.h"
 #include <iostream>
 #include "FrameRate.h"
+#include "Map.h"
+
+
 // we include player.h as it reduces the size of the exe, it doesn't need to be executed or compiled
 
 
@@ -21,16 +24,19 @@
 		FrameRate frameRate;
 		Player myPlayer; // declaring using the library we created
 		Skeleton skeleton;
+		Map map;
 
 
 		myPlayer.Initialize();
 		skeleton.Initialize();
 		frameRate.Initialize();
+		map.Initialize();
+
 
 		frameRate.Load();
 		myPlayer.Load();
 		skeleton.Load();
-		
+		map.Load();
 
 		sf::Clock clock;
 		double deltaTime = 0;
@@ -58,11 +64,13 @@
 
 			
 			frameRate.Update(deltaTime);
-			skeleton.Update();
-			myPlayer.Update(deltaTime, skeleton, mousePosition);  
+			skeleton.Update(deltaTime);
+			myPlayer.Update(deltaTime, skeleton, mousePosition); 
+			map.Update(deltaTime);
 			// -------------------------------  DRAW -------------------------------------------
 			window.clear(sf::Color::Black);
 			// here is where we draw to the back buffer -- between clear and display
+			map.Draw(window);
 			myPlayer.Draw(window);
 			skeleton.Draw(window);
 			frameRate.Draw(window);
