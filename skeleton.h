@@ -22,4 +22,7 @@ private:
 	sf::Texture texture;	// these need to be here, because they need to stay in scope after
 	// they are initialised, not just for the duration of that fn
 
+	sf::RectangleShape boundingRectangle;
+	sf::Vector2i size;
+
 };

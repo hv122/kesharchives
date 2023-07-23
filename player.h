@@ -11,7 +11,7 @@ public:
 
 	void Initialize();
 	void Load();
-	void Update(Skeleton& skeleton);
+	void Update(float deltaTime, Skeleton& skeleton);
 	void Draw(sf::RenderWindow& window);
 
 
@@ -23,6 +23,11 @@ private:
 	sf::Texture texture;					// these need to be here, because they need to stay in scope after
 	std::vector<sf::CircleShape> bullets;	// they are initialised, not just for the duration of that fn
 	float bulletSpeed = 0.5f;
+	float playerSpeed = 2.0f;
+	
+	sf::RectangleShape boundingRectangle;
+	sf::Vector2i size;
+
 
 
 };

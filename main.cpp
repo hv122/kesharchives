@@ -1,5 +1,6 @@
 #include "player.h" // double quotes denote that this file exists in my project
 #include "skeleton.h"
+#include <iostream>
 // we include player.h as it reduces the size of the exe, it doesn't need to be executed or compiled
 
 
@@ -10,8 +11,8 @@
 		// ------------------------------- INITIALIZE -----------------------------------------
 		sf::ContextSettings settings;
 		settings.antialiasingLevel = 4;
-
 		sf::RenderWindow window(sf::VideoMode(1920, 1080), "RPG Game", sf::Style::Default, settings);
+		window.setFramerateLimit(60); // to stop jitter due to v small deltaTime
 
 
 		
@@ -25,9 +26,14 @@
 		myPlayer.Load();
 		skeleton.Load();
 
+		sf::Clock clock;
+
 		// main game loop
 		while(window.isOpen()) // game loop is used to update and draw the game every frame
 		{	
+			sf::Time deltaTimeTimer = clock.restart();
+			float deltaTime = deltaTimeTimer.asMilliseconds();
+
 			// ------------------------------- UPDATE -----------------------------------------
 			sf::Event event; // declaring an event
 			while (window.pollEvent(event)) // event loop detects player activity on inputs
@@ -40,7 +46,7 @@
 			}
 
 			skeleton.Update();
-			myPlayer.Update(skeleton);
+			myPlayer.Update(deltaTime, skeleton);
 
 
 			// -------------------------------  DRAW -------------------------------------------
