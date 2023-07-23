@@ -27,29 +27,23 @@ void Player::Load()
 	}
 }
 
-void Player::Update(skeleton& skeleton)
+void Player::Update(Skeleton& skeleton)
 {
 	auto position = sprite.getPosition();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		sprite.setPosition(position + sf::Vector2f(0.1, 0));
-	}
+		sprite.setPosition(position + sf::Vector2f(1, 0));
+
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		sprite.setPosition(position + sf::Vector2f(-0.1, 0));
-	}
+		sprite.setPosition(position + sf::Vector2f(-1, 0));
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		sprite.setPosition(position + sf::Vector2f(0, 0.1));
-	}
+		sprite.setPosition(position + sf::Vector2f(0, 1));
+
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		sprite.setPosition(position + sf::Vector2f(0, -0.1));
-	}
+		sprite.setPosition(position + sf::Vector2f(0, -1));
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{

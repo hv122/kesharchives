@@ -1,11 +1,11 @@
 #include "skeleton.h"
 #include <iostream>
 
-void skeleton::Initialize()
+void Skeleton::Initialize()
 {
 }
 
-void skeleton::Load()
+void Skeleton::Load()
 {
 	if (texture.loadFromFile("Assets/Player/Textures/spritesheet.png"))
 	{
@@ -26,11 +26,11 @@ void skeleton::Load()
 	}
 } 
 
-void skeleton::Update()
+void Skeleton::Update()
 {
 }
 
-void skeleton::Draw(sf::RenderWindow& window)
+void Skeleton::Draw(sf::RenderWindow& window)
 {
 	window.draw(sprite);
 }
