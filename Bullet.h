@@ -15,9 +15,13 @@ public:
 	void Draw(sf::RenderWindow& window);
 
 	inline const sf::FloatRect& GetGlobalBounds() { return rectangleShape.getGlobalBounds(); }
+	// this function serves to keep the shape and size of the bullets private, whilst allowing
+	// for collision calculations using getGlobalBounds
+	// the inline keyword prevents the compiler from calling a function, saving performance
+	// use inline for super short functions with returns
 	 
 private:
-	sf::RectangleShape rectangleShape;
+	sf::RectangleShape rectangleShape; 
 	sf::Vector2f direction; // properties of the bullet
 	float speed;
 };

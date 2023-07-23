@@ -86,10 +86,7 @@ void Player::Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosi
 			}
 		}
 	}
-
-
 	boundingRectangle.setPosition(sprite.getPosition());
-
 }
 
 // ----------------------------------------------------
