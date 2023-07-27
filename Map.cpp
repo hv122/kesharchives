@@ -20,22 +20,63 @@ void Map::Initialize()
 
 void Map::Load()
 {
-	if (tileSheetTexture.loadFromFile("Assets/Map/tilesheet.png")) 
+	if (tileSheetTexture.loadFromFile("Assets/Map/tilesheet.png"))
 	{
-
 		totalTilesX = tileSheetTexture.getSize().x / tileWidth;
 		totalTilesY = tileSheetTexture.getSize().y / tileHeight;
+
+		tiles = new Tile[totalTilesX * totalTilesY];
+		// create array in the heap by declaring tiles as a pointer, that points to new array
 		std::cout << "Loaded tilesheet\n";
 
-		for (size_t i = 0; i < 10; i++)
+		for (size_t y = 0; y < totalTilesY; y++)
 		{
-			sprites[i].setTexture(tileSheetTexture);
-			sprites[i].setTextureRect(sf::IntRect(i * tileWidth, 0 * tileHeight, tileWidth, tileHeight));
-			sprites[i].setScale(sf::Vector2f(5, 5));
-			sprites[i].setPosition(sf::Vector2f(100 + i * tileWidth * 5, 100));
+
+			for (size_t x = 0; x < totalTilesX; x++)
+			{
+				int i = x + y * totalTilesX;
+
+				tiles[i].id = i;
+				tiles[i].position = sf::Vector2i(x * tileWidth, y * tileHeight);
+
+				/*tiles[i].sprite.setTexture(tileSheetTexture);
+				tiles[i].sprite.setTextureRect(sf::IntRect(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+				tiles[i].sprite.setScale(sf::Vector2f(5, 5));
+				tiles[i].sprite.setPosition(sf::Vector2f(x * tileWidth * 5, 50 + y * tileWidth * 5));*/
+			}
 		}
 	}
+	else
+	{
+		std::cout << "Tilesheet failed to load\n";
+	}
+
+	for (size_t y = 0; y < 2; y++)
+	{
+
+		for (size_t x = 0; x < 3; x++)
+		{
+			int i = x + y * 3;
+			int index = mapNumbers[i];
+
+			mapSprites[i].setTexture(tileSheetTexture);
+
+			mapSprites[i].setTextureRect(sf::IntRect(
+				tiles[index].position.x,
+				tiles[index].position.y,
+				tileWidth,
+				tileHeight));
+
+			mapSprites[i].setScale(sf::Vector2f(5, 5));
+			mapSprites[i].setPosition(sf::Vector2f(x * 16 * 5, 100 + y * 16 * 5));
+		}
+
+	}
 }
+
+
+
+
 
 void Map::Update(float deltaTime)
 {
@@ -43,7 +84,7 @@ void Map::Update(float deltaTime)
 
 void Map::Draw(sf::RenderWindow& window)
 {
-	for (size_t i = 0; i < 10; i++)
-		window.draw(sprites[i]);
+	for (size_t i = 0; i < 6; i++)
+		window.draw(mapSprites[i]);
 
 }

@@ -156,6 +156,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My First Game.rc" />
