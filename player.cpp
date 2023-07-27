@@ -42,7 +42,7 @@ void Player::Load()
 	}
 }
 
-void Player::Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosition) 
+void Player::Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosition)
 {
 	auto position = sprite.getPosition();
 

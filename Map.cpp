@@ -38,11 +38,6 @@ void Map::Load()
 
 				tiles[i].id = i;
 				tiles[i].position = sf::Vector2i(x * tileWidth, y * tileHeight);
-
-				/*tiles[i].sprite.setTexture(tileSheetTexture);
-				tiles[i].sprite.setTextureRect(sf::IntRect(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
-				tiles[i].sprite.setScale(sf::Vector2f(5, 5));
-				tiles[i].sprite.setPosition(sf::Vector2f(x * tileWidth * 5, 50 + y * tileWidth * 5));*/
 			}
 		}
 	}
@@ -51,10 +46,12 @@ void Map::Load()
 		std::cout << "Tilesheet failed to load\n";
 	}
 
-	for (size_t y = 0; y < 2; y++)
+	// above is the lookup table for the corresponding tile to the index values
+
+	for (int y = 0; y < 2; y++)
 	{
 
-		for (size_t x = 0; x < 3; x++)
+		for (int x = 0; x < 3; x++)
 		{
 			int i = x + y * 3;
 			int index = mapNumbers[i];
@@ -78,7 +75,7 @@ void Map::Load()
 
 
 
-void Map::Update(float deltaTime)
+void Map::Update(double deltaTime)
 {
 }
 

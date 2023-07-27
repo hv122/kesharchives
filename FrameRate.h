@@ -9,7 +9,7 @@ public:
 	~FrameRate();
 	void Initialize();
 	void Load();
-	void Update(float DeltaTime);
+	void Update(double DeltaTime);
 	void Draw(sf::RenderWindow& window);
 
 

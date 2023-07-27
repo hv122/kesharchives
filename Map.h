@@ -11,7 +11,7 @@ public:
 
 	void Initialize();
 	void Load();
-	void Update(float deltaTime);
+	void Update(double deltaTime);
 	void Draw(sf::RenderWindow& window); 
 
 private:
@@ -29,7 +29,7 @@ private:
 		7, 8, 9
 	};
 
-	sf::Sprite mapSprites[6];
+	sf::Sprite mapSprites[6]; // this is what stores the map
 
 };
 

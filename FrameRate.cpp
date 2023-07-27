@@ -28,7 +28,7 @@ void FrameRate::Load()
 	}
 }
 
-void FrameRate::Update(float deltaTime) // update this once a second for readability
+void FrameRate::Update(double deltaTime) // update this once a second for readability
 {	
 	timer += deltaTime;
 

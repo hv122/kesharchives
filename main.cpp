@@ -65,8 +65,8 @@
 			
 			frameRate.Update(deltaTime);
 			skeleton.Update(deltaTime);
-			myPlayer.Update(deltaTime, skeleton, mousePosition); 
 			map.Update(deltaTime);
+			myPlayer.Update(deltaTime, skeleton, mousePosition); 
 			// -------------------------------  DRAW -------------------------------------------
 			window.clear(sf::Color::Black);
 			// here is where we draw to the back buffer -- between clear and display

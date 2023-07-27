@@ -11,7 +11,7 @@ void Bullet::Initialize(const sf::Vector2f& position,const sf::Vector2f& target,
 {
 	this->speed = speed; 
 	// this means the "speed of the bullet" allowing the speed to be used in other member fns of the class
-	rectangleShape.setSize(sf::Vector2f(10.0f, 5.0f));
+	rectangleShape.setSize(sf::Vector2f(20.0f, 10.0f));
 	rectangleShape.setPosition(position);
 	direction = Math::NormalizeVector(target - position); 
 	// only once per instance of bullet

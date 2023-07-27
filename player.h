@@ -26,7 +26,7 @@ private:
 	float playerSpeed;
 	
 	
-	float maxFireRate;
+	float  maxFireRate;
 	float fireRateTimer;
 	
 	sf::RectangleShape boundingRectangle;
