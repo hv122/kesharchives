@@ -18,7 +18,8 @@ void Map::Initialize()
 {
 }
 
-void Map::Load()
+
+void Map::Load()  // above is the lookup table for the corresponding tile to the index values
 {
 	if (tileSheetTexture.loadFromFile("Assets/Map/tilesheet.png"))
 	{
@@ -46,9 +47,8 @@ void Map::Load()
 		std::cout << "Tilesheet failed to load\n";
 	}
 
-	// above is the lookup table for the corresponding tile to the index values
 
-	for (int y = 0; y < 2; y++)
+	for (int y = 0; y < 2; y++) // actual map is drawn on the screen, using the lookup table
 	{
 
 		for (int x = 0; x < 3; x++)

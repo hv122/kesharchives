@@ -24,12 +24,12 @@ private:
 	int totalTilesX;
 	int totalTilesY;
 
-	int mapNumbers[6] = {
+	int mapNumbers[6] = { // stores index numbers of tiles
 		7, 8, 9,
 		7, 8, 9
 	};
 
-	sf::Sprite mapSprites[6]; // this is what stores the map
+	sf::Sprite mapSprites[6]; // this is what stores the sprites to be drawn
 
 };
 
